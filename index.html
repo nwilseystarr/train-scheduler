@@ -1,0 +1,38 @@
+<!doctype <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Train Scheduler</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</head>
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Wilsey What Train Is Next</h1>
+          <p class="lead">Take a look below to see the train schedule</p>
+        </div>
+      </div>
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCmWrfwnP4x3s5xQ-q4H1ciTczvmQEUANA",
+    authDomain: "wilsey-train-scheduler.firebaseapp.com",
+    databaseURL: "https://wilsey-train-scheduler.firebaseio.com",
+    projectId: "wilsey-train-scheduler",
+    storageBucket: "wilsey-train-scheduler.appspot.com",
+    messagingSenderId: "971221561929"
+  };
+  firebase.initializeApp(config);
+</script>
+
+</html>
