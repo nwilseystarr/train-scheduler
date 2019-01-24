@@ -5,3 +5,18 @@
     background-color: maroon;
     color: white;
 }
+
+.table {
+   margin: auto auto; 
+   max-width: 960px;
+
+}
+
+.form-group {
+   margin: auto auto; 
+   max-width: 960px;
+}
+
+.submit-btn{
+    margin: 0 16%;
+}

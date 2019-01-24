@@ -1,38 +1,82 @@
 <!doctype <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Train Scheduler</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--CSS Stylesheet-->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+    <!--Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-    crossorigin="anonymous">
+        crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <!--jQuery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+    <!--Moment.js-->
+    <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
+    <!--Link to JS-->
     <script src="assets/js/main.js"></script>
 </head>
+
 <body>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-          <h1 class="display-4">Wilsey What Train Is Next</h1>
-          <p class="lead">Take a look below to see the train schedule</p>
+            <h1 class="display-5">Wilsey What Train Is Next</h1>
+            <p class="lead">Take a look below to see the train schedule</p>
         </div>
-      </div>
+    </div>
+    <br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Train Name</th>
+                <th scope="col">Destination</th>
+                <th scope="col">Frequency (mins)</th>
+                <th scope="col">Next Arrival</th>
+                <th scope="col">Mins Away</th>
+            </tr>
+        </thead>
+        <tbody id="table-main">
+            <tr>
+                <!-- <td id="train-name-disp"></td>
+                <td id="destination-disp"></td>
+                <td id="frequency-disp"></td>
+                <td id="next-arrival-disp"></td>
+                <td id="minutes-away-disp"></td> -->
+        </tbody>
+    </table>
+    <br>
+    <div class=train-form>
+        <form>
+            <div class="form-group">
+                <label for="train-name">Train Name</label>
+                <input type="text" class="form-control" id="train-name" placeholder="Enter name of train">
+                <small id="name-help" class="form-text text-muted">Enter the name of the train here. Ex: Chicago
+                    Express</small>
+            </div>
+            <div class="form-group">
+                <label for="destination-name">Destination</label>
+                <input type="text" class="form-control" id="destination-name" placeholder="Final destination">
+                <small id="name-help" class="form-text text-muted">This train's last stop.</small>
+            </div>
+            <div class="form-group">
+                <label for="first-train-time">First Train Time</label>
+                <input type="text" class="form-control" id="first-train-time" placeholder="HH:MM">
+                <small id="name-help" class="form-text text-muted">Input must be in military tim. Example: 18:00 is 6pm</small>
+            </div>
+            <div class="form-group">
+                <label for="frequency">Frequency</label>
+                <input type="text" class="form-control" id="frequency" placeholder="30">
+                <small id="name-help" class="form-text text-muted">Frequency of train arrival, in minutes.</small>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
+        </form>
+    </div>
 </body>
-
-<script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCmWrfwnP4x3s5xQ-q4H1ciTczvmQEUANA",
-    authDomain: "wilsey-train-scheduler.firebaseapp.com",
-    databaseURL: "https://wilsey-train-scheduler.firebaseio.com",
-    projectId: "wilsey-train-scheduler",
-    storageBucket: "wilsey-train-scheduler.appspot.com",
-    messagingSenderId: "971221561929"
-  };
-  firebase.initializeApp(config);
-</script>
 
 </html>
