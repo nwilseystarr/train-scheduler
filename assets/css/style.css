@@ -6,10 +6,15 @@
     color: white;
 }
 
+th{
+    color: maroon;
+    font-weight: 500;
+}
+
 .table {
    margin: auto auto; 
    max-width: 960px;
-
+   text-align: center;
 }
 
 .form-group {
@@ -17,6 +22,8 @@
    max-width: 960px;
 }
 
-.submit-btn{
-    margin: 0 16%;
+#submit-btn{
+    margin: auto 50% 10% 50%;
+    background-color: maroon;
+    border-color: white;
 }

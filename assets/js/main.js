@@ -36,7 +36,7 @@ $(document).ready(function () {
             frequency_d: frequency,
         })
 
-        alert("New Train Successfully Added!");
+        // alert("New Train Successfully Added!");
 
         //Clear out the text boxes
         $("#train-name").val("");
@@ -47,6 +47,7 @@ $(document).ready(function () {
     });
 
     database.ref().on("child_added", function (snapshot) {
+       
         var sv = snapshot.val();
 
         name = sv.name_d;
@@ -55,24 +56,28 @@ $(document).ready(function () {
         frequency = sv.frequency_d;
 
         console.log(sv);
-        console.log(sv.name_d);
-        console.log(sv.destination_d);
-        console.log(sv.firstTrain_d);
-        console.log(sv.frequency_d);
 
-        //update HTML 
-        // $("#train-name-disp").append(sv.name_d);
-        // $("#destination-disp").append(sv.destination_d);
-        // $("#frequency-disp").append(sv.frequency_d);
-        // <td id="next-arrival-disp"></td>
-        // <td id="minutes-away-disp"></td>
-        $("#table-main").append("<tr><td>" + sv.name_d + "</td><td>" + sv.destination_d + "</td><td>" + sv.frequency_d + "</td></tr>");
+        //Current Time
+        var currentTime = moment();
+        console.log(currentTime);
 
-        // + nextArrival + "</td><td>" + minsAway + "</td></tr>");
+        //Set current first train arrival back one year so we can use it as a future time
+        var firstTrainConverted = moment(firstTrain , "HH:mm A").subtract(1, "years");
+        console.log(firstTrainConverted);
 
-        //error handling 
+        //Difference between now and the original first train time
+        var diff = moment().diff(moment(firstTrainConverted) , "minutes");
+        var left = diff % frequency;
+
+        //How long until the next train
+        var timeToNextTrain = frequency - left;
+        var nextArrival = moment().add(timeToNextTrain , "m").format("HH:mm");
+
+        //Update HTML 
+        $("#table-main").append("<tr><td>" + sv.name_d + "</td><td>" + sv.destination_d + "</td><td>" + sv.frequency_d + "</td><td>" + nextArrival + "</td><td>" + timeToNextTrain  + "</td></tr>");
+
+        //Error handling 
     }, function (errorObject) {
         console.log("Errors handled: " + errorObject.code);
-    })
-
+    });
 });
