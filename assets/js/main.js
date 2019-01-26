@@ -67,10 +67,10 @@ $(document).ready(function () {
 
         //Difference between now and the original first train time
         var diff = moment().diff(moment(firstTrainConverted) , "minutes");
-        var left = diff % frequency;
+        var timeLeft = diff % frequency;
 
         //How long until the next train
-        var timeToNextTrain = frequency - left;
+        var timeToNextTrain = frequency - timeLeft;
         var nextArrival = moment().add(timeToNextTrain , "m").format("HH:mm");
 
         //Update HTML 
